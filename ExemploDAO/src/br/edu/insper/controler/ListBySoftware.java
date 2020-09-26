@@ -22,7 +22,7 @@ public class ListBySoftware extends HttpServlet {
 		List<Task> tasks = dao.getBySoftware();
 		
 		request.setAttribute("tasks", tasks);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/listBySoftware.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/mensagem.jsp");
 		dispatcher.forward(request, response);
 		
 		dao.close();

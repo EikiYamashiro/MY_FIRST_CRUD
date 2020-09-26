@@ -1,33 +1,66 @@
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.container-principal {
+	background-color: #FF6666;
+	display: flex;
+	padding: 40px;
+	justify-content: center;
+}
+
+.container-forms {
+	background-color: #439c8d;
+	
+}
+
+</style>
+
 <title>Tarefa</title>
 </head>
 
 <body>
+
+<div class="container-principal">
+
+<div class="container-forms">
 	<jsp:useBean id="dao" class="br.edu.insper.model.DAO"/>
 	<header>
 	</header>
 	<form action="cria" method="post">
 		<table>
 			<tr>
-				<td>Titulo</td>
-				<td><input type="text" name="titulo"></td>
+				<td class="form-group">
+			    <label>Título</label>
+			    <td><input type="text" placeholder="Título da Task" class="form-control" name="titulo"></td>
 			</tr>
 			<tr>
 				<td>Prioridade</td>
-				<td><input type="text" name="prioridade"></td>
+				<td><input type="text" placeholder="Prioridade (0 - 10)" class="form-control" name="prioridade"></td>
 			</tr>
 			<tr>
 				<td>Descrição</td>
-				<td><input type="text" name="descricao"></td>
+				<td><input type="text" placeholder="Descrição da Task" class="form-control" name="descricao"></td>
 			</tr>
 			<tr>
 				<td>Data de Entrega</td>
-				<td><input type="text" name="entrega"></td>
+				<td><input type="text" placeholder="dd/mm/aaaa" class="form-control" name="entrega"></td>
 			</tr>
 			<tr>
 				<td>Área</td>
-				<td><input type="text" name="area"></td>
+				<td class="custom-control custom-radio custom-control-inline">
+			      <input type="radio" class="toggle" name="area" value="RH">
+				  <label class="custom-control-label">RH</label>
+			        
+			      <input type="radio" class="toggle" name="area" value="Software">
+				  <label class="custom-control-label">Software</label>
+			        
+				  <input type="radio" class="toggle" name="area" value="Hardware">
+				  <label class="custom-control-label">Hardware</label>
+			        	     
+			    </td>
+				
 			</tr>
 			<tr>
 			<td></td>
@@ -36,6 +69,8 @@
 		</table>
 	</form>
 	<br />
+</div>
+</div>	
 	
 
 	

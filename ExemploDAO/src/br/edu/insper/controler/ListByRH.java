@@ -22,7 +22,7 @@ public class ListByRH extends HttpServlet {
 		List<Task> tasks = dao.getByRH();
 		
 		request.setAttribute("tasks", tasks);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/listBy.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/mensagem.jsp");
 		dispatcher.forward(request, response);
 		
 		dao.close();

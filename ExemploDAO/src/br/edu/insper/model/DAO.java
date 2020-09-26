@@ -297,6 +297,40 @@ public class DAO {
 		}
 	}
 	
+	public List<Task> filtra(String area) throws SQLException {
+		String sql = "SELECT * FROM Tasks ORDER BY prioridade DESC;";
+		if (area != "") {
+			sql = "SELECT * FROM Tasks WHERE area=?";
+		} 
+		
+		List<Task> tasks = new ArrayList<Task>();
+		PreparedStatement stmt = null;
+		
+		stmt = connection.prepareStatement(sql);
+		
+		ResultSet rs = null;
+		rs = stmt.executeQuery();
+	
+		while (rs.next()) {
+			Task task = new Task();
+			task.setId(rs.getInt("id"));
+			task.setTitulo(rs.getString("titulo"));
+			task.setPrioridade(rs.getString("prioridade"));
+			task.setDescricao(rs.getString("descricao"));
+			task.setEntrega(rs.getString("entrega"));
+			task.setArea(rs.getString("area"));
+			tasks.add(task);
+		}
+	
+		rs.close();
+	
+		stmt.setString(1, area);
+		stmt.execute();
+		stmt.close();
+		
+		return tasks;
+	}
+	
 	public void altera(Task task) throws SQLException { 
 		String sql = "UPDATE Tasks SET " + "titulo=?,prioridade=?,descricao=?,entrega=? WHERE id=?";
 		PreparedStatement stmt = null;

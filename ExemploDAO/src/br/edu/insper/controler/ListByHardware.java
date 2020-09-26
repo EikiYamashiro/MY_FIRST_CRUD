@@ -22,7 +22,7 @@ public class ListByHardware extends HttpServlet {
 		List<Task> tasks = dao.getByHardware();
 		
 		request.setAttribute("tasks", tasks);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/listByHardware.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/mensagem.jsp");
 		dispatcher.forward(request, response);
 		
 		dao.close();
